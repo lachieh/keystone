@@ -44,8 +44,8 @@ export const start = async (cwd: string) => {
     console.log(`✅ Admin UI ready`);
   }
 
-  const port = config.server?.port || process.env.PORT || 3000;
-  httpServer.listen(port, (err?: any) => {
+  const options = config.server?.options || config.server?.port || process.env.PORT || 3000;
+  httpServer.listen(options, (err?: any) => {
     if (err) throw err;
     console.log(`⭐️ Server Ready on http://localhost:${port}`);
   });
